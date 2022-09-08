@@ -1,14 +1,12 @@
 package com.internetconnection
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.internetconnection.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private val TAG = MainActivity::class.java.simpleName
     private lateinit var mBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,14 +19,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val activeNetworkStateObserver: Observer<Boolean> =
-        Observer<Boolean> { isConnected -> prepareLottieAnimation(isConnected) }
+        Observer<Boolean> { isConnected -> withConnection(isConnected) }
 
-    private fun prepareLottieAnimation(isConnected: Boolean) {
-        Log.d(TAG, "prepareLottieAnimation() called with: isConnected = [$isConnected]")
-        if (isConnected) {
-            mBinding.tvMessage.text = "Доступ к Интернету подключен"
-        } else {
-            mBinding.tvMessage.text = "Нет доступа к Интернету"
-        }
+    private fun withConnection(isConnected: Boolean) {
+        if (isConnected) mBinding.tvMessage.text = "Доступ к Интернету подключен"
+        else mBinding.tvMessage.text = "Нет доступа к Интернету"
+
     }
 }
