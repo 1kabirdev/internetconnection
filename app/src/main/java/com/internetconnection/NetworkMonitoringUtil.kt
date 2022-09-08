@@ -12,12 +12,14 @@ class NetworkMonitoringUtil(context: Context) : NetworkCallback() {
     private val mNetworkRequest: NetworkRequest = NetworkRequest.Builder()
         .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
         .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
+        .addTransportType(NetworkCapabilities.TRANSPORT_ETHERNET)
         .build()
     private val mConnectivityManager: ConnectivityManager
     private val mNetworkStateManager: NetworkStateManager
 
     init {
-        mConnectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        mConnectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         mNetworkStateManager = NetworkStateManager.instance
     }
 
