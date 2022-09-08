@@ -6,7 +6,6 @@ import android.net.ConnectivityManager.NetworkCallback
 import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
-import android.util.Log
 
 class NetworkMonitoringUtil(context: Context) : NetworkCallback() {
 
