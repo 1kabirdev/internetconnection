@@ -10,9 +10,7 @@ class NetworkStateManager {
     fun setNetworkConnectivityStatus(connectivityStatus: Boolean) {
         if (Looper.myLooper() == Looper.getMainLooper()) activeNetworkStatusMLD.setValue(
             connectivityStatus
-        )
-        else activeNetworkStatusMLD.postValue(connectivityStatus)
-
+        ) else activeNetworkStatusMLD.postValue(connectivityStatus)
     }
 
     val networkConnectivityStatus: LiveData<Boolean>
