@@ -21,9 +21,8 @@ class MainActivity : AppCompatActivity() {
     private val activeNetworkStateObserver: Observer<Boolean> =
         Observer<Boolean> { isConnected -> withConnection(isConnected) }
 
-    private fun withConnection(isConnected: Boolean) {
+    private fun withConnection(isConnected: Boolean) =
         if (isConnected) mBinding.tvMessage.text = "Доступ к Интернету подключен"
         else mBinding.tvMessage.text = "Нет доступа к Интернету"
 
-    }
 }

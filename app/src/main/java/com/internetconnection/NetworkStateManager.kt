@@ -13,10 +13,7 @@ class NetworkStateManager {
         ) else activeNetworkStatusMLD.postValue(connectivityStatus)
     }
 
-    val networkConnectivityStatus: LiveData<Boolean>
-        get() {
-            return activeNetworkStatusMLD
-        }
+    val networkConnectivityStatus: LiveData<Boolean> =  activeNetworkStatusMLD
 
     companion object {
         private var INSTANCE: NetworkStateManager? = null

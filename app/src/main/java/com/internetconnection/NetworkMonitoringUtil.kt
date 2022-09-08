@@ -33,9 +33,8 @@ class NetworkMonitoringUtil(context: Context) : NetworkCallback() {
         mNetworkStateManager.setNetworkConnectivityStatus(false)
     }
 
-    fun registerNetworkCallbackEvents() {
+    fun registerNetworkCallbackEvents() =
         mConnectivityManager.registerNetworkCallback(mNetworkRequest, this)
-    }
 
     fun checkNetworkState() {
         try {
